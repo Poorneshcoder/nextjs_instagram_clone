@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Box, Typography, Button, TextField, Card, CardContent, CardMedia, Grid } from '@mui/material';
 import io from 'socket.io-client';
 
-const socket = io('https://nextjs-instagram-clone-5.onrender.com');
+const socket = io('http://localhost:4000');
 
 export default function Post({ post }) {
   const [comment, setComment] = useState('');
@@ -25,7 +25,7 @@ export default function Post({ post }) {
       <CardMedia
         component="img"
         height="200"
-        image={`https://nextjs-instagram-clone-5.onrender.com/${post.photo}`}
+        image={`http://localhost:4000/${post.photo}`}
         alt="Post Image"
         style={{ objectFit: 'cover', width: '100%' }}
       />
