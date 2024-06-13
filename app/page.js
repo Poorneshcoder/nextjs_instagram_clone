@@ -13,9 +13,12 @@ export default function Home() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+    // Fetch initial posts
     axios.get('https://nextjs-instagram-clone-5.onrender.com/posts')
-      .then(response => setPosts(response.data.sort((a, b) => b.id - a.id)));
+      .then(response => setPosts(response.data.sort((a, b) => b.id - a.id)))
+      .catch(error => console.error('Error fetching posts:', error));
 
+    // Socket listeners for real-time updates
     socket.on('new_post', (post) => {
       setPosts(prevPosts => [post, ...prevPosts]);
     });
