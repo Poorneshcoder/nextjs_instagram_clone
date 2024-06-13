@@ -24,7 +24,7 @@ export default function UploadForm() {
 
     try {
       setError(''); // Clear any previous error
-      await axios.post('http://localhost:4000/upload', formData, {
+      await axios.post('https://nextjs-instagram-clone-5.onrender.com/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setPhoto(null);

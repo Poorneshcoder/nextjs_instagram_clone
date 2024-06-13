@@ -7,13 +7,13 @@ import UploadForm from './components/UploadForm';
 import Post from './components/Post';
 import { Box, Container } from '@mui/material';
 
-const socket = io('http://localhost:4000');
+const socket = io('https://nextjs-instagram-clone-5.onrender.com');
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:4000/posts')
+    axios.get('https://nextjs-instagram-clone-5.onrender.com/posts')
       .then(response => setPosts(response.data.sort((a, b) => b.id - a.id)));
 
     socket.on('new_post', (post) => {
